@@ -4,6 +4,14 @@ microwave_oven_factory <- R6Class(
   private = list(
     power_rating_watts = 800
   ),
+  private = list(
+    ..power_rating_watts = 800
+  ),
+  active = list(
+    # Add the binding here
+    power_rating_watts = function() {
+      private$..power_rating_watts
+    },
   # Add a cook method to the factory definition
   public = list(
     cook = function(time_seconds) {
@@ -46,3 +54,7 @@ a_microwave_oven <- microwave_oven_factory$new(
   power_rating_watts = 650,
   door_is_open = TRUE
 )
+
+
+# Get the power rating
+a_microwave_oven$power_rating_watts
