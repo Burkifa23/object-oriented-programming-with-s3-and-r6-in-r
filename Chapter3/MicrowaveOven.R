@@ -9,6 +9,14 @@ microwave_oven_factory <- R6Class(
     cook = function(time_seconds) {
       Sys.sleep(time_seconds)
       print("Your food is cooked")
+    },
+    # Add a open_door() method
+    open_door = function() {
+      private$door_is_open <- TRUE
+    },
+    # Add a close_door() method
+    close_door = function() {
+      private$door_is_open <- FALSE
     }
   )
 )
