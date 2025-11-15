@@ -17,6 +17,15 @@ microwave_oven_factory <- R6Class(
     # Add a close_door() method
     close_door = function() {
       private$door_is_open <- FALSE
+    },
+    # Add initialize() method here
+    initialize = function(power_rating_watts, door_is_open) {
+      if(!missing(power_rating_watts)) {
+        private$power_rating_watts <- power_rating_watts
+      }
+      if(!missing(door_is_open)){
+        private$door_is_open <- door_is_open
+      } 
     }
   )
 )
@@ -30,3 +39,10 @@ microwave_oven <- microwave_oven_factory$new()
 
 # Call cook method for 1 second
 a_microwave_oven$cook(1)
+
+
+# Make a microwave
+a_microwave_oven <- microwave_oven_factory$new(
+  power_rating_watts = 650,
+  door_is_open = TRUE
+)
