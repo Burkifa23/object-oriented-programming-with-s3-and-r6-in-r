@@ -50,3 +50,24 @@ identical(a_microwave_oven$power_level_watts, assigned_microwave_oven$power_leve
 
 # Check a_microwave_oven & cloned_microwave_oven different 
 identical(a_microwave_oven$power_level_watts, cloned_microwave_oven$power_level_watts)  
+
+# Create a microwave oven
+a_microwave_oven <- microwave_oven_factory$new()
+
+# Look at its power plug
+a_microwave_oven$power_plug
+
+# Copy a_microwave_oven using clone(), no args
+cloned_microwave_oven <- a_microwave_oven$clone()
+  
+# Copy a_microwave_oven using clone(), deep = TRUE
+deep_cloned_microwave_oven <- a_microwave_oven$clone(deep=TRUE)
+  
+# Change a_microwave_oven's power plug type  
+a_microwave_oven$power_plug$type <- "British"
+  
+# Check a_microwave_oven & cloned_microwave_oven same 
+identical(a_microwave_oven$power_plug$type, cloned_microwave_oven$power_plug$type)
+
+# Check a_microwave_oven & deep_cloned_microwave_oven different 
+identical(a_microwave_oven$power_plug$type, deep_cloned_microwave_oven$power_plug$type)  
